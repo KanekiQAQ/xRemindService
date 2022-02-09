@@ -23,7 +23,7 @@
   }
 ```
 
-- `RelaxJob`是 Job 名称可随意定义，包含三个参数`Title`、`CronScheduler`、`RemindString`
+- `RelaxJob`是 Job 名称可随意定义，包含三个属性`Title`、`CronScheduler`、`RemindString`
   - `Title`是提醒标题 **必填**
   - `CronScheduler`是提醒时间 Cron 表达式 **必填**
   - `RemindString`是提醒内容 **必填**
