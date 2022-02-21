@@ -12,9 +12,18 @@ namespace xRemindService
             var data = context.JobDetail.JobDataMap;
             var remindString = data.GetString(Constants.RemindString);
             var title = data.GetString(Constants.Title);
-            new ToastContentBuilder()
-                .AddText(title)
-                .AddText(remindString).Show();
+            Interop.ShowMessageBox(remindString, title);
+            // TODO check version
+            try
+            {
+                new ToastContentBuilder()
+                    .AddText(title)
+                    .AddText(remindString).Show();
+            }
+            catch
+            {
+
+            }
             await Console.Out.WriteLineAsync(remindString);
         }
     }

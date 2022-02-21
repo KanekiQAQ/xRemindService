@@ -3,11 +3,16 @@
   <PropertyGroup>
     <TargetFramework>net5.0-windows10.0.17763.0</TargetFramework>
     <UserSecretsId>dotnet-xRemindService-8C0C3D41-80B2-4C68-9696-D937690CF524</UserSecretsId>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
