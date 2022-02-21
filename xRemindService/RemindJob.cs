@@ -1,4 +1,5 @@
-﻿using Quartz;
+﻿using Microsoft.Toolkit.Uwp.Notifications;
+using Quartz;
 using System;
 using System.Threading.Tasks;
 
@@ -11,7 +12,9 @@ namespace xRemindService
             var data = context.JobDetail.JobDataMap;
             var remindString = data.GetString(Constants.RemindString);
             var title = data.GetString(Constants.Title);
-            Interop.ShowMessageBox(remindString, title);
+            new ToastContentBuilder()
+                .AddText(title)
+                .AddText(remindString).Show();
             await Console.Out.WriteLineAsync(remindString);
         }
     }
