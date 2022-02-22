@@ -5,6 +5,8 @@ namespace xRemindService
 {
     public static class Interop
     {
+        public static bool IsWindows10OrGreater => Environment.OSVersion.Version.Major >= 10;
+
         public static IntPtr WTS_CURRENT_SERVER_HANDLE = IntPtr.Zero;
 
         public static void ShowMessageBox(string message, string title)
