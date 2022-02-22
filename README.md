@@ -32,34 +32,36 @@
 
 可以安装成服务这样不用每天都启动项目了
 
-1. 项目发布
-2. 我选择的是
-   - 配置：Release|Any CPU
-   - 目标框架：net5.0
-   - 部署模式：独立
-   - 目标运行时：win-x64
-   - 文件发布选项：勾选 `生成单个文件`
-3. 本人提供一个简单的安装方式
-   - 在发布目录下新建两个 bat 文件，一个`setup.bat` 一个`unsetup.bat`内容如下：
-     - `setup.bat`
-       ```
-       @echo off
-       set path=%~dp0
-       echo %path%
-       sc.exe create xRemindService binPath=%path%xRemindService.exe displayname= xRemindService
-       net start xRemindService
-       sc.exe config xRemindService start= AUTO
-       pause
-       ```
-     - `unsetup.bat`
-       ```
-       @echo off
-       sc.exe stop xRemindService
-       sc.exe delete xRemindService
-       pause
-       ```
-   - 通过管理员运行`setup.bat`进行安装服务，`unsetup.bat`进行卸载服务
-   - 如果修改配置文件需要重启服务
+- 提供了新的安装方式下载releases包 [xRemindService_v1.0.0.zip](https://github.com/KanekiQAQ/xRemindService/releases/download/v1.0.0/xRemindService_v1.0.0.zip)
+- 原有安装方式
+    1. 项目发布
+    2. 我选择的是
+       - 配置：Release|Any CPU
+       - 目标框架：net5.0
+       - 部署模式：独立
+       - 目标运行时：win-x64
+       - 文件发布选项：勾选 `生成单个文件`
+    3. 本人提供一个简单的安装方式
+       - 在发布目录下新建两个 bat 文件，一个`setup.bat` 一个`unsetup.bat`内容如下：
+         - `setup.bat`
+           ```
+           @echo off
+           set path=%~dp0
+           echo %path%
+           sc.exe create xRemindService binPath=%path%xRemindService.exe displayname= xRemindService
+           net start xRemindService
+           sc.exe config xRemindService start= AUTO
+           pause
+           ```
+         - `unsetup.bat`
+           ```
+           @echo off
+           sc.exe stop xRemindService
+           sc.exe delete xRemindService
+           pause
+           ```
+       - 通过管理员运行`setup.bat`进行安装服务，`unsetup.bat`进行卸载服务
+       - 如果修改配置文件需要重启服务
 
 # TO DO
 
